@@ -1,0 +1,65 @@
+
+@import "./custom";
+@import "~bootstrap/scss/bootstrap";
+
+$nbr-of-items: 3;
+
+@mixin multiple-items-carousel($nbr-of-items, $index: 1) {
+  @if $index <= $nbr-of-items {
+    & + .carousel-item {
+      display: block;
+      transform: translateX($index * 100%);
+  
+      @include multiple-items-carousel($nbr-of-items, $index + 1);
+    }
+  }
+}
+
+.carousel-title {
+  margin: 25px;
+  text-align: center;
+}
+
+#multiple-items-carousel {
+  .card-img-top {
+    width: 350px;
+    height: 350px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .card {
+    width: min-content;
+    margin: auto;
+  }
+
+  .carousel-inner {
+    width: 90%;
+    margin: auto;
+  }
+
+  .carousel-control-prev {
+    justify-content: flex-start;
+  }
+
+  .carousel-control-next {
+    justify-content: flex-end;
+  }
+
+  .carousel-item {
+    width: calc(100% / $nbr-of-items);
+
+    &.active {
+      display: block;
+      @include multiple-items-carousel($nbr-of-items);
+
+      &.carousel-item-start {
+        @include multiple-items-carousel($nbr-of-items - 1, 0);
+      }
+
+      &.carousel-item-end {
+        @include multiple-items-carousel($nbr-of-items, 2);
+      }
+    }
+  }
+}
