@@ -8,5 +8,7 @@ After cloning this repo, run the following command `npm run dev`, then visit the
 
 This project utilizes Sass because it is awesome :), you only need to change the Sass variable `$nbr-of-items` to edit the number items.
 
+Live example: [link](https://stackblitz.com/edit/stackblitz-starters-btweci?file=index.html,styles.css)
+
 <br><br>
 ![Screenshot 2024-07-29 231711](https://github.com/user-attachments/assets/eebede45-3c04-4f92-a335-ef9f76ba9423)
